@@ -12,10 +12,10 @@ class Department(models.Model):
 
 class Program(models.Model):
     name = models.CharField(max_length=100)
-    code = models.CharField(max_length=2, unique=True)
+    code = models.CharField(max_length=3)
     description = models.TextField()
     coordinator_name = models.CharField(max_length=100)
-    coordinator_contact = models.CharField(max_length=200)
+    coordinator_contact = models.TextField(max_length=200)
     department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='programs')
 
     def __str__(self):
@@ -41,6 +41,9 @@ class FacultyInfo(models.Model):
     description = models.TextField()
     main_info = models.TextField()
     contacts = models.TextField()
+
+    class Meta:
+        verbose_name_plural = "Faculty Info"
 
     def __str__(self):
         return "Faculty Info"
