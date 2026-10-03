@@ -1,0 +1,12 @@
+{% extends "humanities/base.html" %}
+{% block title %}Departments{% endblock %}
+{% block content %}
+    <section class="card">
+        <h1>Departments</h1>
+        {% for department in departments %}
+            {% include "humanities/department_content.html" %}
+        {% empty %}
+            <p>There are no departments available yet.</p>
+        {% endfor %}
+    </section>
+{% endblock %}
