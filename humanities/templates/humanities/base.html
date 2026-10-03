@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Faculty of Humanities{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'humanities/style.css' %}">
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="brand">
+                <a href="{% url 'humanities:index' %}">
+                    <img src="{% static 'humanities/images/fgn-logo.png' %}"
+                         alt="Faculty Of Humanities">
+                </a>
+
+                <div class="brand-text">
+                    <span>Факультет гуманітарних наук</span>
+                    <small>Києво Могилянська Академія</small>
+                </div>
+            </div>
+
+            <nav aria-label="Main navigation">
+                <a href="{% url 'humanities:index' %}">Home</a>
+                <a href="{% url 'humanities:all_programs' %}">Programs</a>
+                <a href="{% url 'humanities:all_departments' %}">Departments</a>
+            </nav>
+        </header>
+        <main class="page">
+            {% block content %}{% endblock %}
+        </main>
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Факультет гуманітарних наук</h3>
+                    <p> <a href="https://www.ukma.edu.ua/"> Національний університет «Києво-Могилянська академія»</a></p>
+                </div>
+                <address class="footer-contacts">
+                    <h3>Контакти</h3>
+                    <p>вул. Г. Сковороди 2, Київ 04070, Україна</p>
+                    <p>Email: <a href="mailto:humanities@ukma.edu.ua">humanities@ukma.edu.ua</a></p>
+                    <p>Тел.: +380 44 425 14 20</p>
+                </address>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; {% now "Y" %} НаУКМА.</p>
+            </div>
+        </footer>
+    </body>
+</html>
