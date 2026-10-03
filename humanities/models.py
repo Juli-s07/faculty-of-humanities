@@ -19,11 +19,11 @@ class Program(models.Model):
     department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='programs')
 
     def __str__(self):
-        return self.name
+        return f"{self.name} ({self.department.name})"
 
 class Discipline(models.Model):
     name = models.CharField(max_length=200)
-    program = models.ForeignKey(Program, on_delete=models.CASCADE, related_name="disciplines")
+    programs = models.ManyToManyField(Program, related_name="disciplines")
 
     def __str__(self):
         return self.name
