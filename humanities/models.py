@@ -49,11 +49,12 @@ class FacultyInfo(models.Model):
         return "Faculty Info"
 
 class ExchangeProgram(models.Model):
-    university = models.CharField(max_length=300)
+    university_name = models.CharField(max_length=200)
+    country = models.CharField(max_length=100)
     languages = models.CharField(max_length=300)
     seats_num = models.CharField(max_length=100)
     deadline = models.DateField()
     description = models.TextField()
 
     def __str__(self):
-        return self.university
+        return f"{self.university_name} {self.country}"
