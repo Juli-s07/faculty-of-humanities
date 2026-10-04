@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from humanities.admin import FacultyInfoAdmin
-from humanities.models import Program, Department, FacultyInfo
+from humanities.models import Program, Department, FacultyInfo, ExchangeProgram
 
 
 # Create your views here.
@@ -20,3 +20,6 @@ def show_all_departments(request):
 def show_department(request, id):
     department = Department.objects.get(id=id)
     return render(request, 'humanities/department_detail.html', {'department': department})
+def show_exchange_programs(request):
+    exchange_programs = ExchangeProgram.objects.all()
+    return render(request, 'humanities/exchange_programs.html', {'exchange_programs': exchange_programs})
