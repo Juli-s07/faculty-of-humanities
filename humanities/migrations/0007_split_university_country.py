@@ -43,11 +43,13 @@ class Migration(migrations.Migration):
             model_name = 'exchangeprogram',
             name = 'university_name',
             field = models.CharField(default="", max_length=200),
+            preserve_default=False
         ),
         migrations.AddField(
             model_name = 'exchangeprogram',
             name = 'country',
             field = models.CharField(default="", max_length=100),
+            preserve_default=False
         ),
         migrations.RunPython(split, reverse_code = split_back),
         migrations.AlterField(
