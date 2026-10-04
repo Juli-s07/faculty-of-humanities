@@ -47,3 +47,13 @@ class FacultyInfo(models.Model):
 
     def __str__(self):
         return "Faculty Info"
+
+class ExchangeProgram(models.Model):
+    university = models.CharField(max_length=300)
+    languages = models.CharField(max_length=300)
+    seats_num = models.CharField(max_length=100)
+    deadline = models.DateField()
+    description = models.TextField()
+
+    def __str__(self):
+        return self.university
