@@ -1,52 +1,48 @@
 <div class="item-card">
-    <h2>
+  <h2>
     {% if detail %}
-        {{ department.name }}
+      {{ department.name }}
     {% else %}
-        <a href="{% url 'humanities:department' department.id %}">{{ department.name }}</a>
+      <a href="{% url 'humanities:department' department.id %}">{{ department.name }}</a>
     {% endif %}
-    </h2>
-    <p>
-        <strong>Head: </strong>{{ department.head_name }}
-    </p>
-    <h3>Programs:</h3>
-        <ul>
-            {% if detail %}
-                {% for program in department.programs.all %}
-                    <li>
-                        <a href="{% url 'humanities:program' program.id %}">
-                            {{ program.name }}
-                        </a>
-                    </li>
-                {% empty %}
-                    <li>There are no programs available yet.</li>
-                {% endfor %}
-            {% else %}
-                {% for program in department.programs.all|slice:":3" %}
-                    <li>
-                        <a href="{% url 'humanities:program' program.id %}">
-                            {{ program.name }}
-                        </a>
-                    </li>
-                {% empty %}
-                    <li>There are no programs available yet.</li>
-                {% endfor %}
-            {% endif %}
-        </ul>
-        {% if not detail and department.programs.count > 3 %}
-            <p>...</p>
-        {% endif %}
+  </h2>
+  <p>
+    <strong>Head: </strong>{{ department.head_name }}
+  </p>
+  <h3>Programs:</h3>
+  <ul>
     {% if detail %}
-        <h3>Teachers</h3>
-        <ul>
-        {% for teacher in department.teachers.all %}
-            <li>
-                <p>{{ teacher.name }}</p>
-                <p>{{ teacher.position }}, {{ teacher.degree }}</p>
-            </li>
-        {% empty %}
-            <p>There are no teachers registered yet.</p>
-        {% endfor %}
-        </ul>
+      {% for program in department.programs.all %}
+        <li>
+          <a href="{% url 'humanities:program' program.id %}">{{ program.name }}</a>
+        </li>
+      {% empty %}
+        <li>There are no programs available yet.</li>
+      {% endfor %}
+    {% else %}
+      {% for program in department.programs.all|slice:":3" %}
+        <li>
+          <a href="{% url 'humanities:program' program.id %}">{{ program.name }}</a>
+        </li>
+      {% empty %}
+        <li>There are no programs available yet.</li>
+      {% endfor %}
     {% endif %}
+  </ul>
+  {% if not detail and department.programs.count > 3 %}
+    <p>...</p>
+  {% endif %}
+  {% if detail %}
+    <h3>Teachers</h3>
+    <ul>
+      {% for teacher in department.teachers.all %}
+        <li>
+          <p>{{ teacher.name }}</p>
+          <p>{{ teacher.position }}, {{ teacher.degree }}</p>
+        </li>
+      {% empty %}
+        <p>There are no teachers registered yet.</p>
+      {% endfor %}
+    </ul>
+  {% endif %}
 </div>

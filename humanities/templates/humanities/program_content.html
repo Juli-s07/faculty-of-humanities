@@ -1,36 +1,36 @@
 <div class="item-card">
-    <h2>
+  <h2>
     {% if detail %}
-        {{ program.name }}
+      {{ program.name }}
     {% else %}
-        <a href="{% url 'humanities:program' program.id %}">{{ program.name }}</a>
+      <a href="{% url 'humanities:program' program.id %}">{{ program.name }}</a>
     {% endif %}
-    </h2>
-    <p>
-        <strong>Code: </strong>{{ program.code }}
-    </p>
-    <p>
-        <strong>Description</strong>
-        {% if detail %}
-            {{ program.description|linebreaks }}
-        {% else %}
-            {{ program.description|linebreaks|truncatewords:50 }}
-        {% endif %}
-    </p>
-    <p>
-        <strong>Coordinator: </strong>{{ program.coordinator_name }}
-    </p>
-    <p>
-        <strong>Contacts: </strong>{{ program.coordinator_contact|linebreaks }}
-    </p>
+  </h2>
+  <p>
+    <strong>Code: </strong>{{ program.code }}
+  </p>
+  <p>
+    <strong>Description</strong>
     {% if detail %}
-        <h3>Disciplines:</h3>
-        <ul>
-            {% for discipline in program.disciplines.all %}
-                <li>{{ discipline.name }}</li>
-            {% empty %}
-                <li>There are no disciplines available yet.</li>
-            {% endfor %}
-        </ul>
+      {{ program.description|linebreaks }}
+    {% else %}
+      {{ program.description|linebreaks|truncatewords:50 }}
     {% endif %}
+  </p>
+  <p>
+    <strong>Coordinator: </strong>{{ program.coordinator_name }}
+  </p>
+  <p>
+    <strong>Contacts: </strong>{{ program.coordinator_contact|linebreaks }}
+  </p>
+  {% if detail %}
+    <h3>Disciplines:</h3>
+    <ul>
+      {% for discipline in program.disciplines.all %}
+        <li>{{ discipline.name }}</li>
+      {% empty %}
+        <li>There are no disciplines available yet.</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 </div>

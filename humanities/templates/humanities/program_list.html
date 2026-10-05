@@ -1,12 +1,12 @@
 {% extends "humanities/base.html" %}
 {% block title %}Programs{% endblock %}
 {% block content %}
-    <section class="card">
-        <h1>Programs</h1>
-        {% for program in programs %}
-            {% include "humanities/program_content.html" with detail=False %}
-        {% empty %}
-            <p>There are no programs available yet.</p>
-        {% endfor %}
-    </section>
+  <section class="card">
+    <h1>Programs</h1>
+    {% for program in programs %}
+      {% include "humanities/program_content.html" with detail=False %}
+    {% empty %}
+      <p>There are no programs available yet.</p>
+    {% endfor %}
+  </section>
 {% endblock %}
