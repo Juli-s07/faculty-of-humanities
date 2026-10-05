@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 
 # Create your models here.
 
@@ -59,3 +59,7 @@ class ExchangeProgram(models.Model):
 
     def __str__(self):
         return f"{self.university_name} {self.country}"
+
+    @property
+    def is_open(self):
+        return self.deadline >= timezone.localdate()
