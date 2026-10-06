@@ -1,0 +1,7 @@
+{% extends "humanities/base.html" %}
+{% block title %}{{ program.name }}{% endblock %}
+{% block content %}
+  <section class="card">
+    {% include "humanities/program_content.html" with detail=True %}
+  </section>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "humanities/base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+  <section class="card">
+    <h1>Faculty of Humanities</h1>
+    {% if info %}
+      <h2>Description</h2>
+      <p>{{ info.description|linebreaks }}</p>
+      <h2>Main Info</h2>
+      <p>{{ info.main_info|linebreaks }}</p>
+      <h2>Contacts</h2>
+      <p>{{ info.contacts|linebreaks }}</p>
+    {% else %}
+      <p>The information is not available yet.</p>
+    {% endif %}
+  </section>
+{% endblock %}

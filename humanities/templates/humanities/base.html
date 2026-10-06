@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Faculty of Humanities{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'humanities/style.css' %}">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <a href="{% url 'humanities:index' %}">
+          <img src="{% static 'humanities/images/fgn-logo.png' %}"
+               alt="Faculty Of Humanities">
+        </a>
+        <div class="brand-text">
+          <span>Faculty of Humanities</span>
+          <small>Kyiv-Mohyla Academy</small>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="{% url 'humanities:index' %}">Home</a>
+        <a href="{% url 'humanities:all_programs' %}">Programs</a>
+        <a href="{% url 'humanities:all_departments' %}">Departments</a>
+        <a href="{% url 'humanities:exchange_programs' %}">Exchange Programs</a>
+      </nav>
+    </header>
+    <main class="page">
+      {% block content %}{% endblock %}
+    </main>
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-about">
+          <h3>Faculty of Humanities</h3>
+          <p> <a href="https://www.ukma.edu.ua/">National University of Kyiv-Mohyla Academy</a></p>
+        </div>
+        <address class="footer-contacts">
+          <h3>Contacts</h3>
+          <p>2 H. Skovorody Street, Kyiv, 04070, Ukraine</p>
+          <p>Email: <a href="mailto:humanities@ukma.edu.ua">humanities@ukma.edu.ua</a></p>
+          <p>Phone number: +380 44 425 14 20</p>
+        </address>
+      </div>
+      <div class="footer-bottom">
+        <p>© {% now "Y" %} NaUKMA.</p>
+      </div>
+    </footer>
+  </body>
+</html>
